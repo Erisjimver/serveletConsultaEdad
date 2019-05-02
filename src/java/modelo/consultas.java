@@ -15,6 +15,8 @@ public class consultas {
     static conexion cn=new conexion(); 
     Connection c= cn.conexion();
     static SettersAndGetters sg = new SettersAndGetters();
+    
+
           
 
        public static ArrayList<SettersAndGetters> MostrarPersona(){
@@ -54,15 +56,17 @@ public class consultas {
        return datos;
     }
 
-    public  boolean eliminarUsuario(SettersAndGetters to){
+    public static boolean eliminarUsuario(SettersAndGetters to){
         boolean resp = false;
-
-        
+        Connection cn;
+        conexion con = new conexion();
+        cn = con.conexion();
+        System.out.println("Iniciando procedimiento");
         try{
-            CallableStatement cs = c.prepareCall("delete from persona where cedula ?");
+            CallableStatement cs = cn.prepareCall("SELECT(ELIMINAR_USUARIO (?))");//se usa select para llamar a la funcion creada en postgres
             cs.setString(1, to.getCedula());
             int i = cs.executeUpdate();
-            System.out.println(""+to.getCedula());
+            System.out.println("en el procedimiento "+to.getCedula());
             if(i==1)
                 resp = true;
             else
@@ -75,22 +79,5 @@ public class consultas {
         return resp;
     }
 
-    public  boolean eliminarUsuario(){
-        boolean resp = false;
-
-        String cedul="numero de cedula a borrar";
-        try{
-        s = c.createStatement();
-        rs = s.executeQuery("delete from persona where cedula='"+cedul+"'");
-        if(rs.next()){
-            System.out.println(""+rs.getString(1));
-        }
-
-            
-        }catch(SQLException e)
-        {
-            System.out.println(e);
-        }
-        return resp;
-    }
+ 
 }

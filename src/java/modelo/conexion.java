@@ -19,7 +19,7 @@ import java.sql.Statement;
         try
         { 
             Class.forName("org.postgresql.Driver");    
-            String BaseDeDatos = "jdbc:postgresql://192.168.101.47:5433/calcularedad";
+            String BaseDeDatos = "jdbc:postgresql://192.168.101.41:5433/calcularedad";
             //String BaseDeDatos = "jdbc:postgresql://localhost:5433/postgres"; 
             //String BaseDeDatos = "jdbc:postgresql://localhost "direcion ip" :5432/"Nombre de base de datos"";
             conexion=DriverManager.getConnection(BaseDeDatos,"postgres","59291");

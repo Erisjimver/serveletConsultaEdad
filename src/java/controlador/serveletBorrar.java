@@ -44,23 +44,28 @@ public class serveletBorrar extends HttpServlet {
         }
      
     }
-    private void EliminarUsuario(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException{   
-        consultas con=new consultas();
-        SettersAndGetters sg=new SettersAndGetters();
+    private void EliminarUsuario(HttpServletRequest request, HttpServletResponse response)throws ServletException, IOException{   
         
-        String cedula = request.getParameter("cedula");
-        sg.setCedula(cedula);
-        boolean resp = con.eliminarUsuario(sg);
+       // consultas con=new consultas();
+        
+        SettersAndGetters sg=new SettersAndGetters();        
+        sg.setCedula(request.getParameter("cedula"));
+        System.out.println("DEEEEESSSPPUUUUEEESS"+sg.getCedula());
+      
+        boolean resp = consultas.eliminarUsuario(sg);
+        
+        System.out.println("RESPUESTA: "+resp);
+        
         if(resp)
         {
-            response.sendRedirect("mensaje.jsp?mens='Se ha eliminado la clase producto "+cedula+"'");
+            response.sendRedirect("mensaje.jsp?mens='Se ha eliminado la clase producto "+sg.getCedula()+"'");
         }else
         {
-            response.sendRedirect("mensaje.jsp?mens='Error al eliminar la clase producto'");
+           //response.sendRedirect("mensaje.jsp?mens='Error al eliminar la clase producto'");
+            response.sendError(500, "Isrrael mmv parametro url no valido");
         }
-    } 
-
+    }
+    
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
     /**
      * Handles the HTTP <code>GET</code> method.

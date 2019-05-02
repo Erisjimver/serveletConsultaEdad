@@ -47,7 +47,7 @@
                 <br>
                 <center><label for="male">................................................</label>  </center>
                 <br>
-                <center><input type="submit" value="ENVIAR">  <input type="reset" value="LIMPIAR"> <input type="button" onclick="location='buscar.jsp'" value="BUSCAR" name="buscar">  </center>
+                <center><input type="submit" value="ENVIAR">  <input type="reset" value="LIMPIAR"> <input type="button" onclick="location='buscaNuevo.jsp'" value="BUSCAR" name="buscar">  </center>
     </form>
     </body>
 </html>

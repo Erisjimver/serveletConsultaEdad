@@ -57,8 +57,9 @@
                   <td><%=u.getEdad()%></td>  
                   
                     <td class="Opcion">
-                        <input type="button" href="Editar.jsp?id=<%=u.getCedula()%>" class="btn btn-primary">
+                        <a href="Editar.jsp?id=<%=u.getCedula()%>" class="btn btn-primary">Editar</a>
                         <input type="button" name="btnEliminar" value="Eliminar" id="btnEliminar" class="btn btn-danger" onclick="location.href='serveletBorrar?cedula=<%=u.getCedula()%>&&accion=eliminar'"> 
+            
                     </td>
                 </tr>
             <%}%>
